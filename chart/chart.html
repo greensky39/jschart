@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript Chart</title>
+    <!-- including ECharts file -->
+    <script src="../echarts-all.js"></script>
+</head>
+
+<body>
+
+	<h1>Chart</h1>
+    <div id='result'></div>
+    <!-- chartarea 높이와 너비가 지정된 Dom 을 생성합니다 -->
+	<div id="chartArea" style="width:700px; height:500px;"></div>
+    
+
+    <p>
+        <span>시각화유형</span>
+    </p>
+    <!-- <select name="viewType" id="viewType" onchange="selectChart()"> -->
+    <select name="viewType" id="viewType">        
+        <option value="0" selected disabled>차트 선택</option>
+        <option id="id-line" value="1">line chart</option>
+        <option id="id-bar" value="2">bar chart</option>
+        
+    </select>
+    <br>
+    <br>
+
+    <p>
+        <span>title</span>
+    </p>
+    <input id='title' onkeyup='printTitle()'/>
+
+    <p>
+        <span>legend</span>
+    </p>
+	
+    <label for="radioYes">Yes</label>
+    <input type="radio" id="radioYes" checked/>
+    <label for="radioNo">No</label>
+    <input type="radio" id="radioNo" />
+
+    <p>
+        <span>X axis</span>
+    </p>
+    <input id='inputX'/>
+    <p>
+        <span>Y axis</span>
+    </p>
+    <input id='inputY'/>
+
+    <p>
+        <button id="btnCancle" onclick="">취소</button>
+        <button id="btnConfirm" onclick="selectChart()">확인</button>
+    </p>
+
+    <script src="./chartInit.js"></script>
+    <script src="./jsonData.js"></script>
+
+
+       
+</body>
+
+</html>
+
