@@ -23,7 +23,6 @@ function printTitle()  {
 }
 window.onload = function(){
     // lineChart();
-    stackBarChart();
     console.log('radioYes is ' + document.getElementById('radioYes').checked);
     console.log('radioNo is ' + document.getElementById('radioNo').checked);
 };

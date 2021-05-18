@@ -157,6 +157,23 @@ function dataTable(){
 dataTable()
 
 
+
+var regionCodeArr = [];
+for(var i=0; i < chartData.result.length; i++){
+    var dataSet = chartData.result;
+    var string = JSON.stringify(dataSet[i]);
+    var parse = JSON.parse(string)
+    regionCodeArr.push(parse);
+}
+const set = new Set(regionCodeArr);
+const uniqueArr = [...set];
+
+document.writeln(Array.isArray(uniqueArr));
+document.writeln(uniqueArr);
+
+console.log(uniqueArr);
+
+
 // function dataTable(){
 //     const rowCnt = chartData.result.length;
 //     const columnCnt = 7;
