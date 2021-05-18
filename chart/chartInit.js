@@ -74,4 +74,3 @@ function barChart(){
 
     option && myChart.setOption(option);
 }
-

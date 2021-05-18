@@ -137,3 +137,73 @@ function jsonDataSet(){
 
     // }
 }
+
+function dataTable(){
+    const rowCnt = chartData.result.length;
+    const columnCnt = 7;
+
+    document.write('<table border="1">');
+    for (let i = 0; i < rowCnt; i++) {
+    document.write('<tr>');
+    for (let j = 0; j < columnCnt; j++)  {
+        document.write('<td>');
+        document.write(i + ", " + j);
+        document.write('</td>');
+    }
+    document.write('</tr>')
+    }
+    document.write('</table>');
+}
+dataTable()
+
+
+// function dataTable(){
+//     const rowCnt = chartData.result.length;
+//     const columnCnt = 7;
+
+//     document.write('<table border="1">');
+//     for (let i = 0; i < rowCnt; i++) {
+//     document.write('<tr>');
+//     for (let j = 0; j < columnCnt; j++)  {
+//         if(j == 0){
+//             document.write('<td>');
+//             document.write("행");
+//             document.write('</td>');
+//         }
+//         else if(j == 1){
+//             document.write('<td>');
+//             document.write("country_region_code");
+//             document.write('</td>');
+//         }
+//         else if(j == 2){
+//             document.write('<td>');
+//             document.write("country_region");
+//             document.write('</td>');
+//         }
+//         else if(j == 3){
+//             document.write('<td>');
+//             document.write("region");
+//             document.write('</td>');
+//         }
+//         else if(j == 4){
+//             document.write('<td>');
+//             document.write("place_id");
+//             document.write('</td>');
+//         }
+//         else if(j == 5){
+//             document.write('<td>');
+//             document.write("date");
+//             document.write('</td>');
+//         }
+//         else if(j == 6){
+//             document.write('<td>');
+//             document.write("symptom_Abdominal_obesity");
+//             document.write('</td>');
+//         }
+//     }
+//     document.write('</tr>')
+//     }
+//     document.write('</table>');
+// }
+// dataTable();
+
