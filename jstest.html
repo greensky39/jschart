@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript Output</title>
+</head>
+
+<body>
+
+	<h1>chart</h1>
+    <p id="text">이 문장을 바꿀 것입니다 ! </p>
+	<script>
+		document.write(4 * 5);
+        var str = document.getElementById("text")
+        str.innerHTML = "이 문장으로 바뀌었습니다."
+
+        //foreach
+        var items = ['item1', 'item2', 'item3', 'item4'];
+
+        items.forEach(function(item) {
+            console.log(item);
+        });
+
+        //for in
+        var obj = {
+            a: 1, 
+            b: 2, 
+            c: 3
+        };
+
+        for (var prop in obj) {
+            console.log(prop, obj[prop]); // a 1, b 2, c 3
+        }
+
+        var iterable = [10, 20, 30];
+        for (var value of iterable){
+            console.log(value); //10, 20, 30
+        }
+	</script>
+	
+</body>
+
+</html>
+
