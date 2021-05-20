@@ -1,6 +1,6 @@
 function selectChart(){
-    var viewType = document.getElementById("viewType");
-    var val;
+    const viewType = document.getElementById("viewType");
+    const val;
     for(var i=0; i<=viewType.options.length; i++) {
         if(viewType.options[i].selected == true) {
             val = viewType.options[i].value;
@@ -26,10 +26,10 @@ window.onload = function(){
     console.log('radioNo is ' + document.getElementById('radioNo').checked);
 };
 
-var chartDom = document.getElementById('chartArea');
+const chartDom = document.getElementById('chartArea');
 function lineChart(){
-    var myChart = echarts.init(chartDom);
-    var option;
+    let myChart = echarts.init(chartDom);
+    let option;
 
     option = {
         xAxis: {
@@ -49,8 +49,8 @@ function lineChart(){
 }
 
 function barChart(){
-    var myChart = echarts.init(chartDom);
-    var option;
+    let myChart = echarts.init(chartDom);
+    let option;
 
     option = {
         xAxis: {

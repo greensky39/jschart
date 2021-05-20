@@ -1,5 +1,5 @@
 
-var chartData = [
+const chartData = [
     {
         "row": 1,
         "country_region_code": "NZ",
@@ -137,131 +137,50 @@ var chartData = [
     }
 ];
 
-// var jsonDataAll = [];
+// let jsonDataAll = [];
 // for(i=0; i<chartData.length; i++){
-//     var dataString = JSON.stringify(chartData[i]);
-//     var parse = JSON.parse(dataString);
+//     let dataString = JSON.stringify(chartData[i]);
+//     let parse = JSON.parse(dataString);
 //     jsonDataAll.push(parse);    
 // }
 // console.log(jsonDataAll);
 
-// var jsonDataIter = chartData.filter((item1, idx1)=>{
-//     return chartData.findIndex((item2, idx2)=>{
-//         return item1.country_region_code == item2.country_region_code;
-//     }) == idx1;
-// });
-// console.table(jsonDataIter);
+let jsonDataIter = chartData.filter((item1, idx1)=>{
+    return chartData.findIndex((item2, idx2)=>{
+        return item1.country_region_code == item2.country_region_code;
+    }) == idx1;
+});
+console.table(jsonDataIter);
 
 // const keys = ['symptom_Abdominal_obesityi'];
 // jsonDataSum = chartData.reduce(
 //     (r, o) => (keys.forEach(k => r[k] += o[k]), r), 
 //     Object.fromEntries(keys.map(k => [k, 0]))
 // );
-
 // console.log(jsonDataSum);
 
-var jsonfilterTest1 = chartData.filter((item1, idx1)=>{
+let jsonfilterTest1 = chartData.filter((item1, idx1)=>{
     return chartData.findIndex((item2, idx2)=>{
         return item1.country_region_code == item2.country_region_code;
     }) == idx1;
 });
 console.table(jsonfilterTest1);
 
-
-var testJson = 
-[
-    {name : "이건", salary : 50000000},
-    {name : "홍길동", salary : 1000000},
-    {name : "임신구", salary : 3000000},
-    {name : "이승룡", salary : 2000000}
-];
-
-var newJson = testJson.filter(
-    function(element){
-    var newArr = [];
-        for(i=0; i<testJson.length; i++);{
-            if(element.name == "이건"){
-                // console.log('이건');
-            }
-        }
-    }
-);
-
-
-var njData = 
-[
-    {
-        "id" : 1,
-        "name" : "kimys",
-        "count" : 5
-    },
-    {
-        "id" : 2,
-        "name" : "ahndy",
-        "count" : 1
-    },
-    {
-        "id" : 3,
-        "name" : "choi",
-        "count" : 3
-    },
-    {
-        "id" : 4,
-        "name" : "kimys",
-        "count" : 2
-    },
-    {
-        "id" : 2,
-        "name" : "ahndy",
-        "count" : 1
-    },
-    {
-        "id" : 4,
-        "name" : "yoo",
-        "count" : 3
-    },
-    {
-        "id" : 3,
-        "name" : "kimys",
-        "count" : 10
-    },
-    {
-        "id" : 1,
-        "name" : "kimys",
-        "count" : 10
-    }
-    
-];
-
-var newDataArr = [];
-for(var data in njData){
-    var string = JSON.stringify(njData[data]);
-    var parse = JSON.parse(string);
-    newDataArr.push(parse);
-    
+//중복제거, SAO값 sum
+let mapData = {};
+for(data of chartData){
+	if(data.country_region_code in mapData){
+		mapData[data.country_region_code].symptom_Abdominal_obesityi += data.symptom_Abdominal_obesityi;
+	}else{
+		mapData[data.country_region_code] = data;
+	}
 }
-var newDataArr1 = [];
-for(var i=0; i<newDataArr.length; i++){
-    for(j = i+1; j<newDataArr.length; j++){
-    //     else if(newDataArr[i].id == newDataArr[j].id){
-    //         newDataArr[i].count += newDataArr[j].count;
-    //         newDataArr1.push(newDataArr[i]);
-    //     }
-    }
-}
-console.log(newDataArr1);
+console.log(mapData);
 
-var newDataArr2 = [];
-var flag = false;
-for(var i=0; i<newDataArr.length; i++){
-    for(var j=i+1; j<newDataArr.length; j++){
-        if(newDataArr[i].id == newDataArr[j].id){
-            flag = true;
-        }
-    }
-    if(flag){
-        newDataArr2.push(newDataArr[i]);
-    }else{
-        console.log('노중복');
-    }
-}
+
+let mapDataRow = mapData.filter((item1, idx1)=>{
+    return mapData.findIndex((item2, idx2)=>{
+        return item1.country_region_code == item2.country_region_code;
+    }) == idx1;
+});
+console.table(mapDataRow);
