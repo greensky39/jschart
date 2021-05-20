@@ -1,8 +1,7 @@
 function selectChart(){
     var viewType = document.getElementById("viewType");
     var val;
-
-    for(i=0; i<=viewType.options.length; i++) {
+    for(var i=0; i<=viewType.options.length; i++) {
         if(viewType.options[i].selected == true) {
             val = viewType.options[i].value;
             if(val == '1'){
@@ -73,3 +72,4 @@ function barChart(){
 
     option && myChart.setOption(option);
 }
+
