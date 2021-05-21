@@ -1,5 +1,4 @@
-
-const chartData = [
+let chartData = [
     {
         "row": 1,
         "country_region_code": "NZ",
@@ -137,50 +136,24 @@ const chartData = [
     }
 ];
 
-// let jsonDataAll = [];
-// for(i=0; i<chartData.length; i++){
-//     let dataString = JSON.stringify(chartData[i]);
-//     let parse = JSON.parse(dataString);
-//     jsonDataAll.push(parse);    
-// }
-// console.log(jsonDataAll);
-
-let jsonDataIter = chartData.filter((item1, idx1)=>{
-    return chartData.findIndex((item2, idx2)=>{
-        return item1.country_region_code == item2.country_region_code;
-    }) == idx1;
-});
-console.table(jsonDataIter);
-
-// const keys = ['symptom_Abdominal_obesityi'];
-// jsonDataSum = chartData.reduce(
-//     (r, o) => (keys.forEach(k => r[k] += o[k]), r), 
-//     Object.fromEntries(keys.map(k => [k, 0]))
-// );
-// console.log(jsonDataSum);
-
-let jsonfilterTest1 = chartData.filter((item1, idx1)=>{
-    return chartData.findIndex((item2, idx2)=>{
-        return item1.country_region_code == item2.country_region_code;
-    }) == idx1;
-});
-console.table(jsonfilterTest1);
-
-//중복제거, SAO값 sum
-let mapData = {};
-for(data of chartData){
-	if(data.country_region_code in mapData){
-		mapData[data.country_region_code].symptom_Abdominal_obesityi += data.symptom_Abdominal_obesityi;
-	}else{
-		mapData[data.country_region_code] = data;
-	}
+let jsonDataAll = [];
+for(i=0; i<chartData.length; i++){
+    let dataString = JSON.stringify(chartData[i]);
+    let parse = JSON.parse(dataString);
+    jsonDataAll.push(parse);    
 }
-console.log(mapData);
+console.log(jsonDataAll);
 
+//중복제거, sao값 더하기
+let mapData = {};
+let crc = {}; //country_region_code
+let sao = {}; // symptom_Abdominal_obesityi
+for(data of chartData){
+    if(data.country_region_code in mapData){
+        mapData[data.country_region_code].symptom_Abdominal_obesityi += data.symptom_Abdominal_obesityi;
+    }else{
+        mapData[data.country_region_code] = data;
+    }
+}
+console.table(mapData);
 
-let mapDataRow = mapData.filter((item1, idx1)=>{
-    return mapData.findIndex((item2, idx2)=>{
-        return item1.country_region_code == item2.country_region_code;
-    }) == idx1;
-});
-console.table(mapDataRow);

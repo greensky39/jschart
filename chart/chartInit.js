@@ -1,7 +1,7 @@
 function selectChart(){
     const viewType = document.getElementById("viewType");
-    const val;
-    for(var i=0; i<=viewType.options.length; i++) {
+    let val;
+    for(let i=0; i<=viewType.options.length; i++) {
         if(viewType.options[i].selected == true) {
             val = viewType.options[i].value;
             if(val == '1'){
