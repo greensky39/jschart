@@ -2,149 +2,82 @@
 <html lang="ko">
 
 <head>
-	<meta charset="UTF-8">
-	<title>JavaScript Chart</title>
-    <!-- including ECharts file -->
-    <script src="../echarts-all.js"></script>
+  <meta charset="UTF-8">
+  <title>JavaScript Chart</title>
+  <!-- including ECharts file -->
+  <script src="../echarts-all.js"></script>
 </head>
 
 <body>
 
-	<h1>Chart</h1>
-    <table class="jsonTable" border="1"> 
-        <thead> 
-            <th>row</th> 
-            <th>country_region_code</th> 
-            <th>country_region</th> 
-            <th>region</th> 
-            <th>place_id</th> 
-            <th>date</th> 
-            <th>symptom_Abdominal_obesityi</th> 
-         </thead> 
-         <tbody id="tableArea"> 
- 
-         </tbody> 
-     </table> 
-    
-    <div id='result'></div>
-    <!-- chartarea 높이와 너비가 지정된 Dom 을 생성합니다 -->
-	<div id="chartArea" style="width:700px; height:500px;"></div>
-    
+  <h1>Chart</h1>
+  <table class="jsonTable" border="1">
+    <thead>
+      <th>row</th>
+      <th>country_region_code</th>
+      <th>country_region</th>
+      <th>region</th>
+      <th>place_id</th>
+      <th>date</th>
+      <th>symptom_Abdominal_obesityi</th>
+    </thead>
+    <tbody id="tableArea">
 
-    <p>
-        <span>시각화유형</span>
-    </p>
-    <!-- <select name="viewType" id="viewType" onchange="selectChart()"> -->
-    <select name="viewType" id="viewType">        
-        <option value="0" selected disabled>차트 선택</option>
-        <option id="id-line" value="1">line chart</option>
-        <option id="id-bar" value="2">bar chart</option>
-        
-    </select>
-    <br>
-    <br>
+    </tbody>
+  </table>
 
-    <p>
-        <span>title</span>
-    </p>
-    <input id='title' onkeyup='printTitle()'/>
-
-    <p>
-        <span>legend</span>
-    </p>
-	
-    <label for="radioYes">Yes</label>
-    <input type="radio" id="radioYes" checked/>
-    <label for="radioNo">No</label>
-    <input type="radio" id="radioNo" />
-
-    <p>
-        <span>X axis</span>
-    </p>
-    <input id='inputX'/>
-    <p>
-        <span>Y axis</span>
-    </p>
-    <input id='inputY'/>
-
-    <p>
-        <button id="btnCancle" onclick="">취소</button>
-        <button id="btnConfirm" onclick="selectChart()">확인</button>
-        
-    </p>
-
-    <script src="./chartInit.js"></script>
+  <div id='result'></div>
+  <!-- chartarea 높이와 너비가 지정된 Dom 을 생성합니다 -->
+  <div id="chartArea" style="width:700px; height:500px;"></div>
 
 
-    <!-- json data 로드 -->
-     <script type="text/javascript" src="./jsonData.js"></script> 
-     <script>
-     buildTable(chartData)
-     function buildTable(data) { 
-         let table = document.getElementById('tableArea') 
-        //  for (var i=0; i < data.length; i++) { 
-        //      var row = `<tr> 
-        //      <td> ${data[i].row} </td> 
-        //      <td> ${data[i].country_region_code} </td> 
-        //      <td> ${data[i].country_region} </td>
-        //      <td> ${data[i].region} </td> 
-        //      <td> ${data[i].place_id} </td> 
-        //      <td> ${data[i].date} </td>  
-        //      <td> ${data[i].symptom_Abdominal_obesityi} </td>  
-        //      </tr>` 
-        //      table.innerHTML += row 
-        // }
-        for (let i=0; i < data.length; i++) { 
-            let row = data[i].row;
-            let country_region_code = data[i].country_region_code;
-            let country_region = data[i].country_region;
-            let region = data[i].region;
-            let place_id = data[i].place_id;
-            let date = data[i].date;
-            let symptom_Abdominal_obesityi = data[i].symptom_Abdominal_obesityi;
+  <p>
+    <span>시각화유형</span>
+  </p>
+  <!-- <select name="viewType" id="viewType" onchange="selectChart()"> -->
+  <select name="viewType" id="viewType">
+    <option value="0" selected disabled>차트 선택</option>
+    <option id="id-line" value="1">line chart</option>
+    <option id="id-bar" value="2">bar chart</option>
 
-            let tRow = document.createTextNode(row);
-            let tCountry_region_code = document.createTextNode(country_region_code);
-            let tCountry_region = document.createTextNode(country_region);
-            let tRegion = document.createTextNode(region);
-            let tPlace_id = document.createTextNode(place_id);
-            let tDate = document.createTextNode(date);
-            let tSymptom_Abdominal_obesityi = document.createTextNode(symptom_Abdominal_obesityi);
+  </select>
+  <br>
+  <br>
 
-            let tr = document.createElement("tr");
-            let td1 = document.createElement("td");
-            let td2 = document.createElement("td");
-            let td3 = document.createElement("td");
-            let td4 = document.createElement("td");
-            let td5 = document.createElement("td");
-            let td6 = document.createElement("td");
-            let td7 = document.createElement("td");
+  <p>
+    <span>title</span>
+  </p>
+  <input id='title' onkeyup='printTitle()' />
 
-            td1.appendChild(tRow);
-            td2.appendChild(tCountry_region_code);
-            td3.appendChild(tCountry_region);
-            td4.appendChild(tRegion);
-            td5.appendChild(tPlace_id);
-            td6.appendChild(tDate);
-            td7.appendChild(tSymptom_Abdominal_obesityi);
-            
-            tr.appendChild(td1);
-            tr.appendChild(td2);
-            tr.appendChild(td3);
-            tr.appendChild(td4);
-            tr.appendChild(td5);
-            tr.appendChild(td6);
-            tr.appendChild(td7);
+  <p>
+    <span>legend</span>
+  </p>
 
-            let tbody = document.getElementsByTagName("tbody")[0];
+  <label for="radioYes">Yes</label>
+  <input type="radio" id="radioYes" checked />
+  <label for="radioNo">No</label>
+  <input type="radio" id="radioNo" />
 
-            tbody.appendChild(tr);
-        }
-    } 
-    </script>
+  <p>
+    <span>X axis</span>
+  </p>
+  <input id='inputX' />
+  <p>
+    <span>Y axis</span>
+  </p>
+  <input id='inputY' />
 
+  <p>
+    <button id="btnCancle" onclick="">취소</button>
+    <button id="btnConfirm" onclick="selectChart()">확인</button>
 
+  </p>
+
+  <script src="./chartInit.js"></script>
+
+  <!-- json data 로드 -->
+  <script type="text/javascript" src="./jsonData.js"></script>
+  
 </body>
 
 </html>
-
