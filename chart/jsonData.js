@@ -140,65 +140,65 @@ buildTable(chartData)
 
 function buildTable(data) {
   let table = document.getElementById('tableArea')
-  //  for (let i=0; i < data.length; i++) { 
-  //      let row = `<tr> 
-  //      <td> ${data[i].row} </td> 
-  //      <td> ${data[i].country_region_code} </td> 
-  //      <td> ${data[i].country_region} </td>
-  //      <td> ${data[i].region} </td> 
-  //      <td> ${data[i].place_id} </td> 
-  //      <td> ${data[i].date} </td>  
-  //      <td> ${data[i].symptom_Abdominal_obesityi} </td>  
-  //      </tr>` 
-  //      table.innerHTML += row 
-  // }
-  for (let i = 0; i < data.length; i++) {
-    let row = data[i].row;
-    let country_region_code = data[i].country_region_code;
-    let country_region = data[i].country_region;
-    let region = data[i].region;
-    let place_id = data[i].place_id;
-    let date = data[i].date;
-    let symptom_Abdominal_obesityi = data[i].symptom_Abdominal_obesityi;
-
-    let tRow = document.createTextNode(row);
-    let tCountry_region_code = document.createTextNode(country_region_code);
-    let tCountry_region = document.createTextNode(country_region);
-    let tRegion = document.createTextNode(region);
-    let tPlace_id = document.createTextNode(place_id);
-    let tDate = document.createTextNode(date);
-    let tSymptom_Abdominal_obesityi = document.createTextNode(symptom_Abdominal_obesityi);
-
-    let tr = document.createElement("tr");
-    let td1 = document.createElement("td");
-    let td2 = document.createElement("td");
-    let td3 = document.createElement("td");
-    let td4 = document.createElement("td");
-    let td5 = document.createElement("td");
-    let td6 = document.createElement("td");
-    let td7 = document.createElement("td");
-
-    td1.appendChild(tRow);
-    td2.appendChild(tCountry_region_code);
-    td3.appendChild(tCountry_region);
-    td4.appendChild(tRegion);
-    td5.appendChild(tPlace_id);
-    td6.appendChild(tDate);
-    td7.appendChild(tSymptom_Abdominal_obesityi);
-
-    tr.appendChild(td1);
-    tr.appendChild(td2);
-    tr.appendChild(td3);
-    tr.appendChild(td4);
-    tr.appendChild(td5);
-    tr.appendChild(td6);
-    tr.appendChild(td7);
-
-    let tbody = document.getElementsByTagName("tbody")[0];
-
-    tbody.appendChild(tr);
+   for (let i=0; i < data.length; i++) { 
+       let row = `<tr> 
+       <td> ${data[i].row} </td> 
+       <td> ${data[i].country_region_code} </td> 
+       <td> ${data[i].country_region} </td>
+       <td> ${data[i].region} </td> 
+       <td> ${data[i].place_id} </td> 
+       <td> ${data[i].date} </td>  
+       <td> ${data[i].symptom_Abdominal_obesityi} </td>  
+       </tr>` 
+       table.innerHTML += row 
   }
-}
+  // for (let i = 0; i < data.length; i++) {
+  //   let row = data[i].row;
+  //   let country_region_code = data[i].country_region_code;
+  //   let country_region = data[i].country_region;
+  //   let region = data[i].region;
+  //   let place_id = data[i].place_id;
+  //   let date = data[i].date;
+  //   let symptom_Abdominal_obesityi = data[i].symptom_Abdominal_obesityi;
+
+  //   let tRow = document.createTextNode(row);
+  //   let tCountry_region_code = document.createTextNode(country_region_code);
+  //   let tCountry_region = document.createTextNode(country_region);
+  //   let tRegion = document.createTextNode(region);
+  //   let tPlace_id = document.createTextNode(place_id);
+  //   let tDate = document.createTextNode(date);
+  //   let tSymptom_Abdominal_obesityi = document.createTextNode(symptom_Abdominal_obesityi);
+
+  //   let tr = document.createElement("tr");
+  //   let td1 = document.createElement("td");
+  //   let td2 = document.createElement("td");
+  //   let td3 = document.createElement("td");
+  //   let td4 = document.createElement("td");
+  //   let td5 = document.createElement("td");
+  //   let td6 = document.createElement("td");
+  //   let td7 = document.createElement("td");
+
+  //   td1.appendChild(tRow);
+  //   td2.appendChild(tCountry_region_code);
+  //   td3.appendChild(tCountry_region);
+  //   td4.appendChild(tRegion);
+  //   td5.appendChild(tPlace_id);
+  //   td6.appendChild(tDate);
+  //   td7.appendChild(tSymptom_Abdominal_obesityi);
+
+  //   tr.appendChild(td1);
+  //   tr.appendChild(td2);
+  //   tr.appendChild(td3);
+  //   tr.appendChild(td4);
+  //   tr.appendChild(td5);
+  //   tr.appendChild(td6);
+  //   tr.appendChild(td7);
+
+  //   let tbody = document.getElementsByTagName("tbody")[0];
+
+  //   tbody.appendChild(tr);
+  }
+
 // let jsonDataAll = [];
 // for (i = 0; i < chartData.length; i++) {
 //   let dataString = JSON.stringify(chartData[i]);
@@ -219,6 +219,6 @@ for (data of chartData) {
   }
 }
 
-console.table('mapdata', mapData);
+console.table(mapData);
 let fruits = ['Apple', 'Banana', 'Chery'];
 console.log(fruits[1]);

@@ -60,7 +60,18 @@
 
     function buildTable(data) {
       for (let i = 0; i < data.length; i++) {
-
+         for (var i=0; i < data.length; i++) { 
+             var row = `<tr> 
+             <td> ${data[i].row} </td> 
+             <td> ${data[i].country_region_code} </td> 
+             <td> ${data[i].country_region} </td>
+             <td> ${data[i].region} </td> 
+             <td> ${data[i].place_id} </td> 
+             <td> ${data[i].date} </td>  
+             <td> ${data[i].symptom_Abdominal_obesityi} </td>  
+             </tr>` 
+             table.innerHTML += row 
+        }
 
       }
     }
