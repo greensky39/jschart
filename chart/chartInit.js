@@ -1,3 +1,5 @@
+
+
 function selectChart() {
   const viewType = document.getElementById("viewType");
   let val;
@@ -17,7 +19,7 @@ function selectChart() {
 
 function printTitle() {
   const title = document.getElementById('title').value;
-  document.getElementById("result").innerText = title;
+  document.getElementById("printTitle").innerText = title;
 }
 window.onload = function () {
   // lineChart();

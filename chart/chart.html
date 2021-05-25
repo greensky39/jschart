@@ -10,7 +10,8 @@
 
 <body>
 
-  <h1>Chart</h1>
+  <h1>Table</h1>
+  <!-- Table 생성 부분 -->
   <table class="jsonTable" border="1">
     <thead>
       <th>row</th>
@@ -26,8 +27,27 @@
     </tbody>
   </table>
 
-  <div id='result'></div>
-  <!-- chartarea 높이와 너비가 지정된 Dom 을 생성합니다 -->
+  <!-- Table 생성 부분 -->
+  <h1>Table2</h1>
+  <table class="jsonTable" border="1">
+    <thead>
+      <th>row</th>
+      <th>country_region_code</th>
+      <th>country_region</th>
+      <th>region</th>
+      <th>place_id</th>
+      <th>date</th>
+      <th>symptom_Abdominal_obesityi</th>
+    </thead>
+    <tbody id="tableArea2">
+
+    </tbody>
+  </table>
+
+  <br><br>
+  <!-- Title 출력 부분 -->
+  <div id='printTitle' style="font-size: 30px; color: brown;"></div>
+  <!-- chartarea, 차트 출력 부분 -->
   <div id="chartArea" style="width:700px; height:500px;"></div>
 
 
@@ -61,15 +81,28 @@
   <p>
     <span>X axis</span>
   </p>
-  <input id='inputX' />
+  <!-- <input id='inputX' /> -->
+  <select id="inputX" style="width:300px;">
+    <option id="x1">1</option>
+    <option id="x2">2</option>
+    <option id="selCrc">country_region_code</option>
+  </select>
+
   <p>
     <span>Y axis</span>
   </p>
-  <input id='inputY' />
+  <!-- <input id='inputY' /> -->
+  <select id="inputY" style="width:300px;">
+    <option id="y1">1</option>
+    <option id="y2">2</option>
+    <option id="selSao">symptom_Abdominal_obesityi</option>
+  </select>
+
 
   <p>
-    <button id="btnCancle" onclick="">취소</button>
+    <button id="btnCancel" onclick="">취소</button>
     <button id="btnConfirm" onclick="selectChart()">확인</button>
+
 
   </p>
 
