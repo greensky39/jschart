@@ -17,13 +17,18 @@ tip)
 2. 만들어진 배열을 for문을 돌아서 중복없이 새로운 배열을 만든다. (x)
 3. 같은 방법으로 y축도 만들되, y축의 중복된 값이 있으면 sum처리.
 4. 소수점 처리하기
+5. x, y 데이터값 입력받아 차트에 뿌리기
+6. x, y select box에서 입력받아서 차트에 뿌리기
+
 
 server data 처리하기
 
 server data
 http://localhost:8000/data?size=10
 
-git
+fake data server 가동
+git -> fake data directory로 이동
+
 npx ts-node index.ts
 
 fake

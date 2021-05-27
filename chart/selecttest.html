@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript Chart</title>
+  <!-- including ECharts file -->
+  <script src="../echarts-all.js"></script>
+</head>
+<script type="text/javascript">
+	function search() {
+		var tb = document.getElementById("TB_CORP_CD");
+		var tbIndex = document.getElementById("TB_CORP_CD").options.selectedIndex;
+		
+		console.log("tb value : " + tb.options[tbIndex].value);
+	}
+</script>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+	<form>
+		<div>
+			<select id="TB_CORP_CD">
+				<option value="cj">cj대한통운</option>
+				<option value="lotte">롯데택배</option>
+			</select>
+			<input type="button" value="검색" onclick="search();">
+		</div>
+	</form>
+</body>
+</html>

@@ -46,19 +46,21 @@
 
   <br><br>
   <!-- Title 출력 부분 -->
-  <div id='printTitle' style="font-size: 30px; color: brown;"></div>
+  <!-- <div id='outputTitle' style="font-size: 30px; color: brown;"></div> -->
+  <textarea id="printTitle"
+    style="background-color:transparent; border:0; filter: chroma(color=ffffff); resize: none; font-size: 30px; color: brown; height:35px"></textarea>
+
   <!-- chartarea, 차트 출력 부분 -->
   <div id="chartArea" style="width:700px; height:500px;"></div>
-
 
   <p>
     <span>시각화유형</span>
   </p>
   <!-- <select name="viewType" id="viewType" onchange="selectChart()"> -->
-  <select name="viewType" id="viewType">
+  <select id="viewType" name="viewType" >
     <option value="0" selected disabled>차트 선택</option>
-    <option id="id-line" value="1">line chart</option>
-    <option id="id-bar" value="2">bar chart</option>
+    <option value="1">line chart</option>
+    <option value="2">bar chart</option>
 
   </select>
   <br>
@@ -67,7 +69,8 @@
   <p>
     <span>title</span>
   </p>
-  <input id='title' onkeyup='printTitle()' />
+  <!-- <input type='text'id='title' /> <input type='button' id='btnTitle' value='확인' onclick=""/> -->
+  <input type="text" id="inputTitle"> <button onclick="printTitle()">확인</button>
 
   <p>
     <span>legend</span>
@@ -82,34 +85,39 @@
     <span>X axis</span>
   </p>
   <!-- <input id='inputX' /> -->
-  <select id="inputX" style="width:300px;">
-    <option id="x1">1</option>
-    <option id="x2">2</option>
-    <option id="selCrc">country_region_code</option>
+  <select id="inputX" name="inputX" style="width:300px;">
+    <option value="1" selected>1</option>
+    <option value="2">2</option>
+    <option value="selCrc">country_region_code</option>
   </select>
 
   <p>
     <span>Y axis</span>
   </p>
   <!-- <input id='inputY' /> -->
-  <select id="inputY" style="width:300px;">
-    <option id="y1">1</option>
-    <option id="y2">2</option>
-    <option id="selSao">symptom_Abdominal_obesityi</option>
+  <select id="inputY" name="inputY" style="width:300px;">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="selSao">symptom_Abdominal_obesityi</option>
   </select>
-
 
   <p>
     <button id="btnCancel" onclick="">취소</button>
-    <button id="btnConfirm" onclick="selectChart()">확인</button>
-
-
+    <button id="btnConfirm" onclick="chart_X_data(); chart_Y_data(); initChart(); ">확인</button>
   </p>
 
-  <script src="./chartInit.js"></script>
+  <!-- <button id="xdata" onclick="chart_X_data();">chart_X_data</button> -->
+  <!-- <button id="ydata" onclick="chart_Y_data();">chart_Y_data</button> -->
+  
 
   <!-- json data 로드 -->
   <script type="text/javascript" src="./jsonData.js"></script>
+  <!-- 차트 js 로드 -->
+  <script src="./chartInit.js"></script>
+
+
+
+
 
 </body>
 

@@ -2,79 +2,13 @@
 <html>
 
 <body>
-
-
-  <article>
-
-  </article>
-
-  <script type='module'>
-    import axios from 'axios';
-    // axios.get('http://localhost:8000/data?size=10')
-    //   .then(function (response) {
-    //     console.log(response);
-    //   });
-    axios.request(
-      { 
-      method: 'GET', 
-      url: `https://www.test.com`, 
-      headers: {
-        'Content-Type': 'application/json'
-    }, 
-      params: { 
-        msg: hi}, 
-      });
-
-    // axios.get('http\:\/\/localhost\:8000data\?size\=10', {
-    //     params: {
-    //       ID: 12345
-    //     }
-    //   })
-    //   .then(function (response) {
-    //     console.log(response);
-    //   })
-    //   .catch(function (error) {
-    //     console.log(error);
-    //   })
-    //   .finally(function () {
-    //     // always executed
-    //   });
-
-
-    // const axios = require('axios');
-
-    // // ID로 사용자 요청
-    // axios.get('http://localhost:8000/data?size=10')
-    //   // 응답(성공)
-    //   .then(function (response) {
-    //     console.log(response);
-    //   })
-    //   // 응답(실패)
-    //   .catch(function (error) {
-    //     console.log(error);
-    //   })
-    //   // 응답(항상 실행)
-    //   .then(function () {
-    //     // ...
-    //   });
+  <script>
+    fetch('http://localhost:8000/data?size=10')//
+    // fetch('http://ip-api.com/json') //
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch((error) => console.log("error:", error));
   </script>
-  <!-- <input type="button" value="fetch" onclick="
-      /*
-      fetch('html').then(function(response){
-        response.text().then(function(text){
-          document.querySelector('article').innerHTML = text;
-        })
-      })
-      */
-      //Asynchronous
-      fetch('html').then(function(response){
-        if(response.status == '404'){
-          alert('Not found')
-        }
-      });
-      console.log(1);
-      console.log(2);
-    "> -->
 </body>
 
 </html>

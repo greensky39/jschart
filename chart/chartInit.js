@@ -1,32 +1,75 @@
+let xOptionData = {};
+let yOptionData = {};
 
+function initChart() {
+  //시각화 유형
+  let selViewType = document.getElementById("viewType");
+  let selViewTypeIndex = document.getElementById("viewType").options.selectedIndex;
+  // X axis
+  let selX = document.getElementById("inputX");
+  let selXIndex = document.getElementById("inputX").options.selectedIndex;
+  // Y axis
+  let selY = document.getElementById("inputY");
+  let selYIndex = document.getElementById("inputY").options.selectedIndex;
 
-function selectChart() {
-  const viewType = document.getElementById("viewType");
-  let val;
-  for (let i = 0; i <= viewType.options.length; i++) {
-    if (viewType.options[i].selected == true) {
-      val = viewType.options[i].value;
-      if (val == '1') {
+  console.log("viewType : " + selViewType.options[selViewTypeIndex].value);
+  console.log("inputX : " + selX.options[selXIndex].value);
+  console.log("inputY : " + selY.options[selYIndex].value);
+
+  if (selViewType.options[selViewTypeIndex].value == 1) {
+    if (selX.options[selXIndex].value == "selCrc") {
+      if (selY.options[selYIndex].value == "selSao") {
         lineChart();
-      } else if (val == '2') {
+      }
+    }
+  } else if (selViewType.options[selViewTypeIndex].value == 2) {
+    if (selX.options[selXIndex].value == "selCrc") {
+      if (selY.options[selYIndex].value == "selSao") {
         barChart();
       }
-      break;
     }
   }
+}
+
+function chart_X_data() {
+  // X axis
+  let selX = document.getElementById("inputX");
+  let selXIndex = document.getElementById("inputX").options.selectedIndex;
+  for(let i=0; i<=selX.length; i++){
+    if (selX.options[selXIndex].value == "selCrc") {
+      xOptionData = mdKeys;
+    }
+  }
+}
+
+function chart_Y_data() {
+    // Y axis
+    let selY = document.getElementById("inputY");
+    let selYIndex = document.getElementById("inputY").options.selectedIndex;
+    for(let i=0; i<=selY.length; i++){
+      if (selY.options[selYIndex].value == "selSao") {
+        yOptionData = mdValues;
+      }
+    }
 
 }
+
+// title 출력 부분
+let titleTemp;
 
 function printTitle() {
-  const title = document.getElementById('title').value;
-  document.getElementById("printTitle").innerText = title;
+  let input = document.getElementById("inputTitle").value;
+  titleTemp = input;
+  document.getElementById("printTitle").value = titleTemp;
 }
+
 window.onload = function () {
   // lineChart();
   console.log('radioYes is ' + document.getElementById('radioYes').checked);
   console.log('radioNo is ' + document.getElementById('radioNo').checked);
 };
 
+// 차트 출력 부분
 const chartDom = document.getElementById('chartArea');
 
 function lineChart() {
@@ -36,18 +79,20 @@ function lineChart() {
   option = {
     xAxis: {
       type: 'category',
-      data: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+      data: xOptionData
     },
     yAxis: {
       type: 'value'
     },
     series: [{
-      data: [150, 230, 224, 218, 135, 147, 260, 500, 700, 100],
+      data: yOptionData,
       type: 'line'
     }]
   };
 
   option && myChart.setOption(option);
+  console.log("xoptondata :", xOptionData);
+  console.log("yoptondata :", yOptionData);
 }
 
 function barChart() {
@@ -57,13 +102,13 @@ function barChart() {
   option = {
     xAxis: {
       type: 'category',
-      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+      data: xOptionData
     },
     yAxis: {
       type: 'value'
     },
     series: [{
-      data: [120, 200, 150, 80, 70, 110, 130],
+      data: yOptionData,
       type: 'bar',
       showBackground: true,
       backgroundStyle: {
@@ -73,4 +118,13 @@ function barChart() {
   };
 
   option && myChart.setOption(option);
+  console.log("xoptondata :", xOptionData);
+  console.log("yoptondata :", yOptionData);
+}
+
+function xyDataInput() {
+  // for (let valx = 0; valx < inputX.options.length; i++) {
+
+  // }
+  console.log("func test !!");
 }

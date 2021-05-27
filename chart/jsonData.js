@@ -135,6 +135,10 @@ let chartData = [{
   }
 ]
 
+// fetch('http://localhost:8000/data?size=10')
+//   .then(response => response.json())
+//   .then(data => console.log(data))
+
 function buildTable(data) {
   let table = document.getElementById('tableArea')
   for (let i = 0; i < data.length; i++) {
@@ -171,7 +175,7 @@ for (data of chartData) {
 //   console.log(prop + "," + chartData[prop]['country_region_code'] + "," + chartData[prop]['symptom_Abdominal_obesityi']);
 // }
 
-// keys
+// keys, country_region_code
 let mdKeys = [];
 for (prop in mapData) {
   // console.log(prop + "," + mapData[prop].symptom_Abdominal_obesityi);
@@ -179,23 +183,13 @@ for (prop in mapData) {
 }
 console.log(mdKeys);
 
-// values
+// values, symptom_Abdominal_obesityi
 let mdValues = [];
 for (prop in mapData) {
   // console.log(prop + "," + mapData[prop].symptom_Abdominal_obesityi);
-  mdValues.push(prop + " : " + mapData[prop].symptom_Abdominal_obesityi.toFixed(2));
+  mdValues.push(mapData[prop].symptom_Abdominal_obesityi.toFixed(2));
 }
 console.log(mdValues);
-
-// keys, values
-let mdkeyval = {};
-for (prop in mapData) {
-  mdkeyval += {
-    x: prop,
-    y: mapData[prop].symptom_Abdominal_obesityi.toFixed(2)
-  };
-}
-console.log(mdkeyval);
 
 // mapData 테이블
 function buildTable2(data) {
@@ -218,30 +212,3 @@ function buildTable2(data) {
   tbody.appendChild(tr);
 }
 buildTable2(mapData);
-
-axios.get('https://velog.io/@sss5793/axios-%EC%82%AC%EC%9A%A9%ED%95%B4%EB%B3%B4%EA%B8%B0-uuk5elxk88')
-  .then(function (response) {
-    console.log(response.result);
-  });
-
-// fetch('http://localhost:8000/data?size=10')
-//   .then( res => res.json())
-//   .then( res => {
-//     // data를 응답받은 후의 로직
-//   );
-
-// $.ajax({
-//   url:"http://localhost:8000/data?size=10",
-//   type:"POST",
-//   data:JSON.stringify(params),
-//   success: function(result){
-//     if(result){
-//       alert("저장되었습니다.");
-//     }else{
-//       alert("잠시 후에 시도해 주세요.");
-//     }
-//   },
-//   error: function(){
-//     alert("에러 발생!");
-//   }
-// });
