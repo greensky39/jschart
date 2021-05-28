@@ -192,16 +192,7 @@ for (prop in mapData) {
 }
 console.log(mdValues);
 
-// value, name
-// value
-
 // keys, values
-// const mdkeyVal = [];
-// for (let i = 0; i < mdKeys.length; i++) {
-//   mdkeyVal[mdKeys[i]] = mdValues[i];
-// }
-// console.log(mdkeyVal);
-
 const mdkeyVal = [];
 for (let i = 0; i <= mdKeys.length-1; i++) {
   mdkeyVal.push({
@@ -210,22 +201,6 @@ for (let i = 0; i <= mdKeys.length-1; i++) {
   });
 }
 console.log(mdkeyVal);
-
-// const changeKeys = [];
-// for (let i = 0; i <= mdKeys.length-1; i++) {
-//   changeKeys.push({
-//     name: mdKeys[i],
-//   });
-// }
-// console.log(changeKeys);
-
-// const changeValues = [];
-// for (let i = 0; i <= mdValues.length-1; i++) {
-//   changeValues.push({
-//     value: mdValues[i],
-//   });
-// }
-// console.log(changeValues);
 
 // mapData 테이블
 function buildTable2(data) {

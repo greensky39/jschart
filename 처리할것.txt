@@ -22,10 +22,15 @@ tip)
 7. initchart for문으로 간결하게 만들기 **
 
 
+
+
 server data 처리하기
 
-server data
+fake data1
 http://localhost:8000/data?size=10
+
+fake data2
+http://localhost:8000/data?size=30&page=1
 
 fake data server 가동
 git -> fake data directory로 이동
@@ -42,3 +47,4 @@ yarn
 ls
 
 npx ts-node index.ts
+
