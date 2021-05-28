@@ -19,6 +19,7 @@ tip)
 4. 소수점 처리하기
 5. x, y 데이터값 입력받아 차트에 뿌리기
 6. x, y select box에서 입력받아서 차트에 뿌리기
+7. initchart for문으로 간결하게 만들기 **
 
 
 server data 처리하기
