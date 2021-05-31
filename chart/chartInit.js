@@ -1,5 +1,3 @@
-
-
 function initChart() {
   //시각화 유형
   let selViewType = document.getElementById("viewType");
