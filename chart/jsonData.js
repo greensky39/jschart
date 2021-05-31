@@ -3,14 +3,14 @@ let tpData = {};
 async function showData() {
 
   // JSON 읽기
-  // let response = await fetch('http://localhost:8000/data?size=30&page=1');
-  let response = await fetch('http://127.0.0.1:5500/promiseTest.html');
-  tpData = await response.json();
+   let response = await fetch('http://localhost:8000/data?size=30&page=1');
+  //let response = await fetch('http://127.0.0.1:5500/promiseTest.html');
+  let tpData1 = await response.json();
 
   // 1초 대기
   await new Promise((resolve, reject) => setTimeout(resolve, 1000));
-
-  for (data of tpData.result) {
+  
+  for (let data of tpData1.result) {
     if (data.country_region_code in testMapData) {
       testMapData[data.country_region_code].symptom_Abdominal_obesityi += data.symptom_Abdominal_obesityi;
     } else {
@@ -18,13 +18,13 @@ async function showData() {
     }
   }
 
-  console.log("tpData :",tpData);
+  console.log("tpData :",tpData1);
   console.log("testMapData :",testMapData);
   
   return testMapData;
 }
 console.log("testMapData!!! :",testMapData);
-showData();
+//showData();
 
 let chartData = {
   result: [{
@@ -167,16 +167,21 @@ let chartData = {
 console.log(chartData);
 
 function buildTable(data) {
+  console.log('buildTable called')
+  console.log(data)
   let table = document.getElementById('tableArea')
-  for (let i = 0; i < data.length; i++) {
+  table.innerHTML = ''
+  console.log(data.AM)
+  for (const j in data){
+    const i = data[j]
     let row = `<tr> 
-        <td> ${data[i].row} </td> 
-        <td> ${data[i].country_region_code} </td> 
-        <td> ${data[i].country_region} </td>
-        <td> ${data[i].region} </td> 
-        <td> ${data[i].place_id} </td> 
-        <td> ${data[i].date} </td>  
-        <td> ${data[i].symptom_Abdominal_obesityi.toFixed(2)} </td>  
+        <td> ${i.row} </td> 
+        <td> ${i.country_region_code} </td> 
+        <td> ${i.country_region} </td>
+        <td> ${i.region} </td> 
+        <td> ${i.placeId} </td> 
+        <td> ${i.date} </td>  
+        <td> ${i.symptom_Abdominal_obesityi} </td>  
         </tr>`
     table.innerHTML += row
   }
@@ -186,14 +191,14 @@ function buildTable(data) {
   tbody.appendChild(tr);
 }
 
-buildTable(chartData.result);
+//buildTable(chartData.result);
 // buildTable(tpData);
-console.log(buildTable(tpData));
+//console.log(buildTable(tpData));
 
 
 //중복제거, sao값 더하기
 let mapData = {};
-for (data of chartData.result) {
+for (let data of chartData.result) {
   if (data.country_region_code in mapData) {
     mapData[data.country_region_code].symptom_Abdominal_obesityi += data.symptom_Abdominal_obesityi;
   } else {
@@ -252,4 +257,4 @@ function buildTable2(data) {
 
   tbody.appendChild(tr);
 }
-buildTable2(mapData);
+//buildTable2(mapData);

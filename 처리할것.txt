@@ -48,3 +48,18 @@ ls
 
 npx ts-node index.ts
 
+글로벌 아닌 폴더로 설치방법
+npm init -y 
+(package.json 생성)
+
+npm i typescript
+
+cat package.json 
+(dependencies 에 typescript 생성됨)
+
+npx tsc --init
+(tsconfig.json 생성)
+
+
+
+

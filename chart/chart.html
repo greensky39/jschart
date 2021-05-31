@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <title>JavaScript Chart</title>
 
+
+  
 </head>
 
 <body>
@@ -120,7 +122,11 @@
   <script src="./chartData.js"></script>
   <script src="./chartFunctions.js"></script>
   <script src="./chartInit.js"></script>
-
+  <script>
+    showData().then((data) => {
+      buildTable(data)
+    });
+  </script>
 
 
 </body>
